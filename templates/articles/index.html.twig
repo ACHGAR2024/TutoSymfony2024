@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Articles index
+{% endblock %}
+
+{% block body %}
+    <h1 class="bg-black text-white p-3 rounded">
+        Articles Index
+    </h1>
+    <div style="text-align: right">
+        <a href="{{ path('app_articles_new') }}" class="btn btn-primary">
+            Create new
+        </a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Id
+                </th>
+                <th scope="col">
+                    Title
+                </th>
+                <th scope="col">
+                    Content
+                </th>
+                <th scope="col">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>
+                        {{ article.id }}
+                    </td>
+                    <td>
+                        {{ article.title }}
+                    </td>
+                    <td>
+                        {{ article.content }}
+                    </td>
+                    <td>
+                        <a href="{{ path('app_articles_show', {'id': article.id}) }}" class="btn btn-sm btn-primary m-1">
+                            Show
+                        </a>
+                        <a href="{{ path('app_articles_edit', {'id': article.id}) }}" class="btn btn-sm btn-secondary m-1">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">
+                        No records found
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+        <br>
+            <br>
+                <br>
+                    <br>
+                        <br>
+                            <br>
+
+                            {% endblock %}
+                            

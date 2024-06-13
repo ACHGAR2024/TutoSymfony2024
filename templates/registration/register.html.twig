@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block body %}
+    <div class="card shadow-sm mt-5 mx-auto" style="max-width: 400px;">
+        <div class="card-body">
+            <h1 class="h3 mb-3 font-weight-normal bg-primary text-white p-2 rounded">
+                Register
+            </h1>
+
+            {{ form_errors(registrationForm) }}
+
+            {{ form_start(registrationForm) }}
+            <div class="mb-3">
+                {{ form_row(registrationForm.email, {
+                        'attr': {
+                            'class': 'form-control',
+                            'placeholder': 'Email',
+                            'autocomplete': 'email'
+                        }
+                    }) }}
+            </div>
+            <div class="mb-3">
+                {{ form_row(registrationForm.plainPassword, {
+                        'label': 'Password',
+                        'attr': {
+                            'class': 'form-control',
+                            'autocomplete': 'new-password'
+                        }
+                    }) }}
+            </div>
+            <div class="form-check mb-3">
+                {{ form_row(registrationForm.agreeTerms, {
+                        'label_attr': {
+                            'class': 'form-check-label'
+                        },
+                        'attr': {
+                            'class': 'form-check-input'
+                        }
+                    }) }}
+                <label class="form-check-label" for="{{ registrationForm.agreeTerms.vars.id }}">
+                    I agree to the terms
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-lg btn-primary btn-block">
+                Register
+            </button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}

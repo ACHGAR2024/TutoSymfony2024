@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Edit Category
+{% endblock %}
+
+{% block body %}
+    <h1 class="bg-primary text-white p-3 rounded">
+        Edit Category
+    </h1>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            {{ include('categories/_form.html.twig', {'button_label': 'Update'}) }}
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <a href="{{ path('app_categories_index') }}" class="btn btn-secondary">
+            Back to list
+        </a>
+        {{ include('categories/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
